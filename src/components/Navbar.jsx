@@ -1,26 +1,38 @@
-import {Link, useLocation} from 'react-router-dom'
-import './Navbar.module.css';
+import { Link, useLocation } from 'react-router-dom';
+import styles from'./Navbar.module.css';
 
 export function Navbar() {
     const location = useLocation();
-        return (
-            <nav className='menu-nav'>
-                <div className='logo'>
-                    <Link to='/' style ={{
-                        color: location.pathname === '/' ? '#fff' : '#aaa',
-                        textDecoration: 'none',
-                        fontWeight: location.pathname === '/' ? 'bold' : 'normal',
-                        transition: 'color 0.2s'
-                    }}>
-                        Explorar 
-                        </Link>
-                    <div/>
-<ul className='nav-Links'>
-    <li>
-        </li>
-
-        <li>
-    </li>
-            </nav>
+    return (
+        <nav className={styles['menu-nav']}>
+            <div className={styles['logo']}>
+                <Link to="/" className={styles['titulo-principal']}>
+                    GeoFlagger 🌍
+                </Link>
             </div>
+            <ul className={styles['nav-links']}>
+                <Link to='/' style={{
+                    color: location.pathname === '/' ? '#fff' : '#aaa',
+                    textDecoration: 'none',
+                    fontWeight: location.pathname === '/' ? 'bold' : 'normal',
+                    transition: 'color 0.2s '
+                    }}>
+                Explorar
+                </Link>
+                <li>
+                    <Link to='/favoritos' style={{
+                    color: location.pathname === '/favoritos' ? '#fff' : '#aaa',
+                    textDecoration: 'none',
+                    fontWeight: location.pathname === '/favoritos' ? 'bold' : 'normal',
+                    transition: 'color 0.2s '
+                    }}>
+                        Meus Destinos
+                    </Link>
+                </li>
+                <li>
+
+                </li>
+            </ul>
+        </nav>
+    )
 }
